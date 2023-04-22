@@ -8,13 +8,14 @@ import java.io.File;
 
 public class TextFromJPGReaderMain {
 
+    private static final String FILE_EXTENSION = "jpg";
     private static final String JPG_FILE_NAME = "kocham cie";
     private static final String TESSDATA_PATH = "C:\\Users\\fikot\\IdeaProjects\\text-from-jpg-reader\\tessdata";
     private static final String TESSERACT_LANGUAGE = "pol";
 
     public static void main(String[] args) throws TesseractException {
 
-        File imageFile = new File("src/main/resources/" + JPG_FILE_NAME + ".jpg");
+        File imageFile = new File("src/main/resources/" + JPG_FILE_NAME + "." + FILE_EXTENSION);
         Tesseract tesseract = new Tesseract();
         tesseract.setDatapath(TESSDATA_PATH);
         tesseract.setLanguage(TESSERACT_LANGUAGE);
