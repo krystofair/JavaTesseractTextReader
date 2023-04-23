@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox minHeight="275" minWidth="600" spacing="5.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.controllers.TextFromImageReaderController">
+    <padding>
+        <Insets left="5.0" right="5.0"/>
+    </padding>
+    <GridPane hgap="5.0" vgap="5">
+        <Label text="Ścieżka pliku:" GridPane.valignment="BOTTOM" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        <Button text="Wybierz obraz" maxWidth="Infinity" onAction="#chooseFile" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <Button text="Podgląd obrazu" onAction="#openPreview" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <TextField fx:id="tfPath" HBox.hgrow="ALWAYS" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+        <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints hgrow="ALWAYS"/>
+        </columnConstraints>
+    </GridPane>
+    <TextArea fx:id="taExtractedText" wrapText="true" editable="false"/>
+</VBox>

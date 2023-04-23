@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.image.ImageView?>
+<VBox fx:id="mainVBox" minHeight="400" minWidth="600" spacing="5.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.controllers.ImagePreviewController">
+    <ImageView fx:id="imageView" />
+</VBox>
