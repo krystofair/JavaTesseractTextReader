@@ -11,7 +11,8 @@ import java.nio.file.Files;
 
 public class TextFromJPGReaderMain {
 
-    private static final String TESSDATA_PATH = "./tessdata/";
+    // this is set up in start script in linux by TESSDATA_PREFIX environment variable
+    // private static final String TESSDATA_PATH = "tessdata/";
     private static final String TESSERACT_LANGUAGE = "pol";
 
     public static void main(String[] args) throws TesseractException {
@@ -27,7 +28,7 @@ public class TextFromJPGReaderMain {
         if (Files.exists(path)) {
             File imageFile = new File(path.toString());
             Tesseract tesseract = new Tesseract();
-            tesseract.setDatapath(TESSDATA_PATH);
+            // tesseract.setDatapath(TESSDATA_PATH);
             tesseract.setLanguage(TESSERACT_LANGUAGE);
             String result = tesseract.doOCR(imageFile);
             System.out.println(result);
