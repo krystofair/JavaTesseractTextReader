@@ -1,8 +1,15 @@
 #!/bin/bash
 
 # Examine this script to change the most important parts.
+PATH_TO_FILES=$1
 
-export TESSDATA_PREFIX=./tessdata  # set where to find tessdata
+if [[ -z "$PATH_TO_FILES" ]];
+then
+    echo "You must provide path to files as first argument"
+    exit -1
+fi
+
+export TESSDATA_PREFIX=./tessdata  # set where to find tessdata - it's required in linux
 
 # create dir for ready texts if not exists yet
 if [[ ! -d ready ]]; then
@@ -23,8 +30,8 @@ fi
 
 # processed each picture in specified directory
 # or skip if txt version for that file exists
-for file in $(ls /srv/untrusted/pictures)
+for file in $(ls $PATH_TO_FILES)
 do
-    if [[ -d ./ready/${file}.txt ]]; then continue; fi
-    java -jar ./text-from-jpg-reader.jar $file > ./ready/${file}.txt
+    if [[ -e ./ready/${file}.txt ]]; then continue; fi
+    java -jar ./text-from-jpg-reader.jar $PATH_TO_FILES $file > ./ready/${file}.txt
 done

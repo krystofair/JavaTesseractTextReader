@@ -24,7 +24,7 @@ public class TextFromJPGReaderMain {
         // special path I created for pictures to process
         // in logic: webserver put file to that folder and then program process it 
         // XXX getDefault() in cloud solution can be a problem?
-        Path path = FileSystems.getDefault().getPath("/srv/untrusted/pictures/", args[0]);
+        Path path = FileSystems.getDefault().getPath(args[0], args[1]);
         if (Files.exists(path)) {
             File imageFile = new File(path.toString());
             Tesseract tesseract = new Tesseract();
@@ -33,7 +33,7 @@ public class TextFromJPGReaderMain {
             String result = tesseract.doOCR(imageFile);
             System.out.println(result);
         } else {
-            System.out.println("The file " + path.toString() + " you provided is unavailable");
+            System.out.println("The file " + path + " you provided is unavailable");
             System.exit(-1);
         }
         System.exit(0);
