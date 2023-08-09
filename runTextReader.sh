@@ -33,5 +33,5 @@ fi
 for file in $(ls $PATH_TO_FILES)
 do
     if [[ -e ./ready/${file%.*}.txt ]]; then continue; fi
-    java -jar ./text-from-jpg-reader.jar $PATH_TO_FILES $file > ./ready/${file}.txt
+    java -jar ./text-from-jpg-reader.jar $PATH_TO_FILES $file > ./ready/${file%.*}.txt
 done
